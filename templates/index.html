@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checklist Sala de Aula</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Checklist - Sala de Aula</h1>
+        <div id="formulario">
+            {% for pergunta in perguntas %}
+            <div class="pergunta">
+                <p>{{ pergunta }}</p>
+                <button class="btn sim" onclick="responder('{{ pergunta }}', 'Sim', this)">Sim</button>
+                <button class="btn nao" onclick="responder('{{ pergunta }}', 'Não', this)">Não</button>
+                <span class="feedback"></span>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
